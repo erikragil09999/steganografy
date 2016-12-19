@@ -1,5 +1,5 @@
 <?php 
-      function strToBin($input)
+     function strToBin($input)
     {
         if (!is_string($input))
             return false;
