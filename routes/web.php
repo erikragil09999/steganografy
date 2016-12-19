@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('encode', 'SteganoController@index');
+
+Route::post('encode/embed', 'SteganoController@analyze');

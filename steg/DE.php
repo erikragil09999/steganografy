@@ -4,6 +4,14 @@
 <title>DE</title>
 </head>
 <body>
+	<form action="" method="POST">
+	    <label>Text</label>
+    	<input type="text" name="isi" placeholder="input your text" /><br>
+ 	<?php
+
+  		
+ 	?>
+	</form>
 
 <br>
 <form name="frmImage" action="" method="post" enctype="multipart/form-data">
@@ -17,10 +25,12 @@
 		{
 
 			if(is_array($_FILES)) {
-			$image_properties = getimagesize($_FILES['myImage']['tmp_name']);
-			print "<PRE>";
-			print_r($image_properties);
-			print "</PRE>";
+			$im = imagecreatefrompng($_FILES['myImage']);
+			$rgb = imagecolorat($im, 10, 15);
+
+			$colors = imagecolorsforindex($im, $rgb);
+
+			var_dump($colors);
 
 					$l = $image_properties['0']+$image_properties['1']/2;
 					$h = $image_properties['0']-$image_properties['1'];
@@ -28,7 +38,7 @@
 					$Xaksen = $l + ($Haksen+1/2);
 					$Yaksen = $l - ($Haksen/2);
 					
-					
+						
 						if ($Haksen < 2*(255-$l) || $Haksen < 2*$l+1 ) {
 							print"<PRE>";
 							echo "hasil x aksen: ";
