@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/register', function () {
+    return view('registration');
+});
+Route::post('register/store', 'SteganoController@register');
 
 Route::get('encode', 'SteganoController@index');
 
